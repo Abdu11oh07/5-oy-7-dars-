@@ -71,7 +71,34 @@ INSERT INTO book_reviews (book_id, review_text, rating, review_date) VALUES
 (4, 'Beautiful and melancholic.', 4, '2003-08-30'),
 (5, 'Masterpiece of magical realism.', 5, '2004-12-25');
 
+SELECT title AS "Book Title", genre AS "Genre", price AS "Price in USD" FROM books;
+SELECT name AS "Author Name", birth_date AS "Date of Birth" FROM authors;
+SELECT name AS "Publisher Name", city AS "City" FROM publishers;
+SELECT review_text AS "Review", rating AS "Rating" FROM book_reviews;
 
+SELECT * FROM books ORDER BY price DESC;
+SELECT * FROM authors ORDER BY name ASC;
+
+SELECT * FROM books WHERE genre = 'Fantasy';
+SELECT * FROM authors WHERE country = 'United Kingdom';
+
+SELECT * FROM books LIMIT 3;
+SELECT * FROM authors FETCH FIRST 2 ROWS ONLY;
+
+SELECT * FROM books WHERE genre IN ('Fantasy', 'Dystopian', 'Romance');
+SELECT * FROM authors WHERE country IN ('United Kingdom', 'United States');
+
+SELECT * FROM books WHERE price BETWEEN 10 AND 20;
+SELECT * FROM publishers WHERE founded_year BETWEEN 1900 AND 2000;
+
+SELECT * FROM books WHERE title LIKE 'Harry Potter%';
+SELECT * FROM authors WHERE name LIKE '%George%';
+
+SELECT * FROM book_reviews WHERE review_text IS NULL;
+SELECT * FROM books WHERE publication_date IS NULL;
+
+SELECT genre, COUNT(*) AS "Number of Books" FROM books GROUP BY genre;
+SELECT country, COUNT(*) AS "Number of Authors" FROM authors GROUP BY country;
 
 SELECT * FROM book_reviews;
 SELECT * FROM books;
